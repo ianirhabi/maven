@@ -1,0 +1,19 @@
+variables:
+  MAVEN_CLI_OPTS: "--show-version"
+
+## Cache downloaded dependencies and plugins between builds.
+cache:
+  paths:
+    - .m2/repository
+
+building:
+  stage: build
+  script:
+    #'uname -a'
+    - /root/bin/bin/mvn clean package
+  only:
+    - master
+#  artifacts:
+#    paths:
+#      - target/*.jar
+
